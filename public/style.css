@@ -1,0 +1,280 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0066cc; /* Cor dos botões */
+  color: white;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+}
+
+.navbar ul li a:hover {
+  background-color: #004a99; /* Tom mais escuro */
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto 0 auto; /* Ajuste para compensar a altura da navbar fixa */
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+h1 {
+  color: #0066cc;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+input[type="submit"],
+button {
+  background-color: #0066cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #0066cc;
+  color: #fff;
+}
+
+.box {
+  border: 2px solid rgba(255, 255, 255, 0.093);
+  border-radius: 20px;
+  backdrop-filter: blur(40px);
+  background: transparent;
+  box-shadow: rgb(185, 20, 20);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bg_login {
+  background-image: url(./source/img/login_bg.jpg);
+  background-size: cover;
+}
+
+.charactercolorlogin {
+  color: #ffffff;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  input[type="submit"],
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  input[type="submit"],
+  button {
+    font-size: 1em;
+    padding: 8px;
+  }
+
+  th,
+  td {
+    font-size: 0.9em;
+  }
+
+  .navbar ul li a {
+    padding: 10px;
+  }
+}
+
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.padding {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* Adicione estas linhas ao seu arquivo CSS existente */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container canvas {
+  width: 100%;
+  height: auto;
+}

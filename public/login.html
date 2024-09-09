@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body class="center bg_login">
+    <div class="register-container">
+      <div class="row">
+        <div class="form-container">
+          <section class="logo-container">
+            <img class="logo" src="./source/img/logo.png" alt="Logo" />
+            <label class="text-logo">Sistema de Gerenciamento</label>
+          </section>
+          <hr />
+          <h2>Entrar</h2>
+          <form id="loginForm">
+            <div class="input-group">
+              <label for="username">Nome de usuário</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="password">Senha</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Digite sua senha"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Logar</button>
+            <a href="register.html" class="btn btn-secondary"
+              >Não possuo uma conta</a
+            >
+          </form>
+        </div>
+        <div class="col illustration-container"></div>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

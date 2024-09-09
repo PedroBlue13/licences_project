@@ -1,0 +1,138 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0066cc;
+  color: white;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+}
+
+.navbar ul li a:hover {
+  background-color: #004a99;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+h1 {
+  color: #0066cc;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.chart-container .chartjs-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.chart-container .chartjs-legend li {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .chart-container {
+    max-width: 100%;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento de Aditivos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar fixa -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#adicionar-aditivo">Adicionar Aditivo</a></li>
+        <li><a href="#filtrar-aditivos">Filtrar Aditivos</a></li>
+        <li><a href="javascript:void(0)" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="container main-container active">
+      <h1>Gerenciamento de Aditivos</h1>
+
+      <section id="adicionar-aditivo" class="section">
+        <h2>Adicionar Aditivo</h2>
+        <form id="aditivoForm" class="form-container">
+          <!-- Propriedade -->
+          <h3>Propriedade</h3>
+          <div class="input-group">
+            <label for="aditivo">Aditivo</label>
+            <input type="text" id="aditivo" required />
+          </div>
+          <div class="input-group">
+            <label for="patrimonio">Patrimônio</label>
+            <input type="text" id="patrimonio" required />
+          </div>
+          <div class="input-group">
+            <label for="chamado">Chamado</label>
+            <input type="text" id="chamado" required />
+          </div>
+          <div class="input-group">
+            <label for="colaborador">Colaborador</label>
+            <input type="text" id="colaborador" required />
+          </div>
+          <div class="input-group">
+            <label for="email_colaborador">E-mail do Colaborador</label>
+            <input type="email" id="email_colaborador" required />
+          </div>
+
+          <!-- Recebimento -->
+          <h3>Recebimento</h3>
+          <div class="input-group">
+            <label for="rua">Rua</label>
+            <input type="text" id="rua" required />
+          </div>
+          <div class="input-group">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" required />
+          </div>
+          <div class="input-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" required />
+          </div>
+          <div class="input-group">
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" required />
+          </div>
+          <div class="input-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" required />
+          </div>
+          <div class="input-group">
+            <label for="responsavel">Responsável</label>
+            <input type="text" id="responsavel" required />
+          </div>
+
+          <!-- Máquina -->
+          <h3>Máquina</h3>
+          <div class="input-group">
+            <label for="tipo">Tipo</label>
+            <input type="text" id="tipo" required />
+          </div>
+          <div class="input-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" required />
+          </div>
+          <div class="input-group">
+            <label for="armazenamento">Armazenamento</label>
+            <input type="text" id="armazenamento" required />
+          </div>
+          <div class="input-group">
+            <label for="processador">Processador</label>
+            <input type="text" id="processador" required />
+          </div>
+          <div class="input-group">
+            <label for="memoria_ram">Memória RAM</label>
+            <input type="text" id="memoria_ram" required />
+          </div>
+          <div class="input-group">
+            <label for="placa_video">Placa de Vídeo</label>
+            <input type="text" id="placa_video" required />
+          </div>
+          <div class="input-group">
+            <label for="fonte">Fonte</label>
+            <input type="text" id="fonte" required />
+          </div>
+
+          <!-- Recibo e departamento -->
+          <h3>Recibo e Departamento</h3>
+          <div class="input-group">
+            <label for="numero_nf">Número NF</label>
+            <input type="text" id="numero_nf" required />
+          </div>
+          <div class="input-group">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" id="cnpj" required />
+          </div>
+          <div class="input-group">
+            <label for="centro_custos">Centro de Custos</label>
+            <input type="text" id="centro_custos" required />
+          </div>
+          <div class="input-group">
+            <label for="numero_serie">Número de Série</label>
+            <input type="text" id="numero_serie" required />
+          </div>
+          <div class="input-group">
+            <label for="inicio_contrato">Início do Contrato</label>
+            <input type="date" id="inicio_contrato" required />
+          </div>
+          <div class="input-group">
+            <label for="observacao_pedido">Observação do Pedido</label>
+            <input type="text" id="observacao_pedido" required />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Adicionar Aditivo
+          </button>
+        </form>
+      </section>
+
+      <section id="filtrar-aditivos" class="section">
+        <h2>Filtrar Aditivos</h2>
+        <div class="input-group">
+          <label for="filterAditivo">Aditivo</label>
+          <input type="text" id="filterAditivo" />
+        </div>
+        <div class="input-group">
+          <label for="filterPatrimonio">Patrimônio</label>
+          <input type="text" id="filterPatrimonio" />
+        </div>
+        <div class="input-group">
+          <label for="filterChamado">Chamado</label>
+          <input type="text" id="filterChamado" />
+        </div>
+        <div class="input-group">
+          <label for="filterColaborador">Colaborador</label>
+          <input type="text" id="filterColaborador" />
+        </div>
+        <div class="input-group">
+          <label for="filterEmailColaborador">E-mail do Colaborador</label>
+          <input type="text" id="filterEmailColaborador" />
+        </div>
+        <button onclick="filterAditivos()" class="btn btn-primary">
+          Filtrar
+        </button>
+        <button onclick="clearFilters()" class="btn btn-secondary">
+          Limpar Filtros
+        </button>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Aditivo</th>
+                <th>Patrimônio</th>
+                <th>Chamado</th>
+                <th>Colaborador</th>
+                <th>E-mail do Colaborador</th>
+                <th>Rua</th>
+                <th>Número</th>
+                <th>Bairro</th>
+                <th>Estado</th>
+                <th>Cidade</th>
+                <th>Responsável</th>
+                <th>Tipo</th>
+                <th>Modelo</th>
+                <th>Armazenamento</th>
+                <th>Processador</th>
+                <th>Memória RAM</th>
+                <th>Placa de Vídeo</th>
+                <th>Fonte</th>
+                <th>Número NF</th>
+                <th>CNPJ</th>
+                <th>Centro de Custos</th>
+                <th>Número de Série</th>
+                <th>Início do Contrato</th>
+                <th>Observação do Pedido</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="aditivoTableBody">
+              <!-- Aditivos will be added here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="aditivoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Editar Aditivo</h2>
+        <form id="editAditivoForm">
+          <input type="hidden" id="editAditivoId" />
+          <div class="input-group">
+            <label for="editAditivo">Aditivo</label>
+            <input type="text" id="editAditivo" required />
+          </div>
+          <div class="input-group">
+            <label for="editPatrimonio">Patrimônio</label>
+            <input type="text" id="editPatrimonio" required />
+          </div>
+          <div class="input-group">
+            <label for="editChamado">Chamado</label>
+            <input type="text" id="editChamado" required />
+          </div>
+          <div class="input-group">
+            <label for="editColaborador">Colaborador</label>
+            <input type="text" id="editColaborador" required />
+          </div>
+          <div class="input-group">
+            <label for="editEmailColaborador">E-mail do Colaborador</label>
+            <input type="email" id="editEmailColaborador" required />
+          </div>
+          <div class="input-group">
+            <label for="editRua">Rua</label>
+            <input type="text" id="editRua" required />
+          </div>
+          <div class="input-group">
+            <label for="editNumero">Número</label>
+            <input type="text" id="editNumero" required />
+          </div>
+          <div class="input-group">
+            <label for="editBairro">Bairro</label>
+            <input type="text" id="editBairro" required />
+          </div>
+          <div class="input-group">
+            <label for="editEstado">Estado</label>
+            <input type="text" id="editEstado" required />
+          </div>
+          <div class="input-group">
+            <label for="editCidade">Cidade</label>
+            <input type="text" id="editCidade" required />
+          </div>
+          <div class="input-group">
+            <label for="editResponsavel">Responsável</label>
+            <input type="text" id="editResponsavel" required />
+          </div>
+          <div class="input-group">
+            <label for="editTipo">Tipo</label>
+            <input type="text" id="editTipo" required />
+          </div>
+          <div class="input-group">
+            <label for="editModelo">Modelo</label>
+            <input type="text" id="editModelo" required />
+          </div>
+          <div class="input-group">
+            <label for="editArmazenamento">Armazenamento</label>
+            <input type="text" id="editArmazenamento" required />
+          </div>
+          <div class="input-group">
+            <label for="editProcessador">Processador</label>
+            <input type="text" id="editProcessador" required />
+          </div>
+          <div class="input-group">
+            <label for="editMemoriaRam">Memória RAM</label>
+            <input type="text" id="editMemoriaRam" required />
+          </div>
+          <div class="input-group">
+            <label for="editPlacaVideo">Placa de Vídeo</label>
+            <input type="text" id="editPlacaVideo" required />
+          </div>
+          <div class="input-group">
+            <label for="editFonte">Fonte</label>
+            <input type="text" id="editFonte" required />
+          </div>
+          <div class="input-group">
+            <label for="editNumeroNF">Número NF</label>
+            <input type="text" id="editNumeroNF" required />
+          </div>
+          <div class="input-group">
+            <label for="editCNPJ">CNPJ</label>
+            <input type="text" id="editCNPJ" required />
+          </div>
+          <div class="input-group">
+            <label for="editCentroCustos">Centro de Custos</label>
+            <input type="text" id="editCentroCustos" required />
+          </div>
+          <div class="input-group">
+            <label for="editNumeroSerie">Número de Série</label>
+            <input type="text" id="editNumeroSerie" required />
+          </div>
+          <div class="input-group">
+            <label for="editInicioContrato">Início do Contrato</label>
+            <input type="date" id="editInicioContrato" required />
+          </div>
+          <div class="input-group">
+            <label for="editObservacaoPedido">Observação do Pedido</label>
+            <input type="text" id="editObservacaoPedido" required />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Salvar Alterações
+          </button>
+          <button type="button" id="deleteAditivoButton">
+            Deletar Aditivo
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="aditivos.js"></script>
+  </body>
+</html>

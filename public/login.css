@@ -1,0 +1,169 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+}
+
+.register-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  /* filter: drop-shadow(10px 10px 10px rgba(13, 87, 199, 0.829)); */
+}
+
+.row {
+  display: flex;
+  flex: 1;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 100%;
+  height: 85, 1%;
+  max-width: 400px;
+  background: #fff;
+  padding: 60px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-top: 10%;
+}
+
+.text-logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #0066cc;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #0066cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 105%;
+  margin-bottom: 10%;
+}
+
+.btn-primary:hover {
+  background-color: #005bb5;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #0066cc;
+  padding: 10px 20px;
+  border: 2px solid #0066cc;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f8ff;
+}
+
+.illustration-container {
+  background-color: #e6f7ff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./source/img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .illustration-container {
+    display: none; /* Oculta a imagem em tablets e dispositivos menores */
+  }
+
+  .register-container {
+    width: 95%;
+    height: 110%;
+  }
+  .input-group {
+    width: 80%;
+    margin-left: 8%;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .text-logo {
+    font-size: 1.2em;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .input-group input {
+    padding: 8px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px;
+  }
+}

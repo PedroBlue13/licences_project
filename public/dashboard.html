@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Licenças</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Navbar fixa -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="licencas.html">Gerenciamento de Licenças</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <div class="container main-container active">
+      <h1>Dashboard de Licenças</h1>
+      <section id="dashboard" class="section">
+        <h2>Dashboard</h2>
+        <div class="dashboard-container">
+          <div class="chart-container">
+            <h3>Quantidade de licenças por categoria</h3>
+            <canvas id="chartLicencasPorCategoria"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>Quantidade de licenças por data de criação</h3>
+            <canvas id="chartLicencasPorDataCriacao"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>Quantidade de licenças por departamento</h3>
+            <canvas id="chartLicencasPorDepartamento"></canvas>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

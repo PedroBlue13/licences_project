@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <!-- Navbar fixa -->
+    <nav class="navbar">
+      <div id="welcome-message" class="welcome-message"></div>
+      <ul>
+        <!-- <li><a href="home.html">Home</a></li> -->
+        <li><a href="licencas.html">Gerenciar Licenças</a></li>
+        <li><a href="aditivos.html">Gerenciar Aditivos</a></li>
+        <li><a href="javascript:void(0)" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="home-container">
+      <aside class="sidebar">
+        <button onclick="navigateTo('licencas.html')">
+          Gerenciar Licenças
+        </button>
+        <button onclick="navigateTo('aditivos.html')">
+          Gerenciar aditivos
+        </button>
+        <!-- Adicione mais botões conforme necessário -->
+      </aside>
+
+      <main class="main-content">
+        <div class="thumbnail" onclick="navigateTo('licencas.html')">
+          <h3>Gerenciar Licenças</h3>
+          <p>
+            Bem-vindo ao nosso portal de gestão de licenças! Aqui você pode
+            pesquisar, adicionar e editar licenças de forma eficiente e
+            organizada. Simplifique seu gerenciamento e mantenha todas as
+            informações essenciais em um único lugar.
+          </p>
+        </div>
+        <div class="thumbnail" onclick="navigateTo('aditivos.html')">
+          <h3>Gerenciamento de aditivos</h3>
+          <p>Bem-vindo ao nosso portal de gestão de aditivos! Aqui você pode pesquisar, adicionar e editar aditivos de forma eficiente e organizada. Simplifique seu gerenciamento e mantenha todas as informações essenciais em um único lugar..</p>
+        </div>
+        <!-- Adicione mais miniaturas conforme necessário -->
+      </main>
+    </div>
+
+    <script src="home.js"></script>
+  </body>
+</html>

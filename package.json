@@ -1,0 +1,21 @@
+{
+  "name": "licencas_project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "build": "echo 'Building the project...' && npm install",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "sqlite3": "^5.1.7",
+    "xlsx": "^0.18.5"
+  }
+}

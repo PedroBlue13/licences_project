@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento de Usuários e Licenças</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Navbar fixa -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#adicionar-usuario">Adicionar Usuário</a></li>
+        <li><a href="#filtrar-usuarios">Filtrar Usuários ou Licenças</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="javascript:void(0)" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="container main-container active">
+      <h1>Gerenciamento de Usuários e Licenças</h1>
+
+      <section id="adicionar-usuario" class="section">
+        <h2>Adicionar Usuário</h2>
+        <form id="userForm">
+          <div>
+            <label for="nomeUser">Nome User</label>
+            <input type="text" id="nomeUser" required />
+          </div>
+          <div>
+            <label for="departamento">Departamento</label>
+            <input type="text" id="departamento" required />
+          </div>
+          <div>
+            <label for="licenca">Licença</label>
+            <select id="licenca" required>
+              <!-- opções de licença -->
+              <option value="Microsoft 365 Business Basic">
+                Microsoft 365 Business Basic
+              </option>
+              <option value="Power BI Pro">Power BI Pro</option>
+              <option value="Microsoft Fabric (Free)">
+                Microsoft Fabric (Free)
+              </option>
+              <option value="Microsoft 365 Apps for business">
+                Microsoft 365 Apps for business
+              </option>
+              <option value="Office 365 E3">Office 365 E3</option>
+              <option value="Microsoft Power Automate Free">
+                Microsoft Power Automate Free
+              </option>
+              <option value="Project Plan 3">Project Plan 3</option>
+              <option value="Office 365 F3">Office 365 F3</option>
+              <option value="Microsoft 365 Business Standard">
+                Microsoft 365 Business Standard
+              </option>
+              <option value="Dynamics 365 Sales Professional">
+                Dynamics 365 Sales Professional
+              </option>
+              <option value="Microsoft 365 E3">Microsoft 365 E3</option>
+              <option value="Power BI Premium Per User">
+                Power BI Premium Per User
+              </option>
+              <option value="Microsoft Power Apps for Developer">
+                Microsoft Power Apps for Developer
+              </option>
+              <option value="Microsoft 365 F3">Microsoft 365 F3</option>
+              <option value="Power Automate Premium">
+                Power Automate Premium
+              </option>
+              <option value="Planner Plan 1">Planner Plan 1</option>
+              <option value="OneDrive for business (Plan 2)">
+                OneDrive for business (Plan 2)
+              </option>
+              <option value="Microsoft Power Apps Plan 2 Trial">
+                Microsoft Power Apps Plan 2 Trial
+              </option>
+              <option value="Windows 10/11 Enterprise E3 VDA">
+                Windows 10/11 Enterprise E3 VDA
+              </option>
+              <option value="Copilot for Microsoft 365">
+                Copilot for Microsoft 365
+              </option>
+              <option value="Dynamics 365 Customer Voice Trial">
+                Dynamics 365 Customer Voice Trial
+              </option>
+              <option value="Microsoft Entra ID P2">
+                Microsoft Entra ID P2
+              </option>
+              <option value="Microsoft Business Center">
+                Microsoft Business Center
+              </option>
+              <option value="Visio Plan 2">Visio Plan 2</option>
+              <option value="Microsoft Stream Trial">
+                Microsoft Stream Trial
+              </option>
+            </select>
+          </div>
+          <div>
+            <label for="dataCriacao">Data de criação</label>
+            <input type="date" id="dataCriacao" required />
+          </div>
+          <div>
+            <label for="fornecedor">Fornecedor</label>
+            <input type="text" id="fornecedor" required />
+          </div>
+          <div>
+            <label for="valor">Valor</label>
+            <input type="number" id="valor" step="0.01" required />
+          </div>
+          <div>
+            <label for="cc">Centro de Custo</label>
+            <input type="text" id="cc" required />
+          </div>
+          <input type="submit" value="Adicionar Usuário" />
+        </form>
+      </section>
+
+      <section id="filtrar-usuarios" class="section">
+        <h2>Filtrar Usuários ou Licenças</h2>
+        <div>
+          <label for="filterNomeUser">Nome User</label>
+          <input type="text" id="filterNomeUser" />
+        </div>
+        <div>
+          <label for="filterDepartamento">Departamento</label>
+          <input type="text" id="filterDepartamento" />
+        </div>
+        <div>
+          <label for="filterLicenca">Licença</label>
+          <input type="text" id="filterLicenca" />
+        </div>
+        <div class="padding">
+          <button onclick="filterUsers()">Filtrar</button>
+          <button class="padding" onclick="clearFilters()">
+            Limpar Filtros
+          </button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome User</th>
+                <th>Departamento</th>
+                <th>Licença</th>
+                <th>Data de criação</th>
+                <th>Fornecedor</th>
+                <th>Valor</th>
+                <th>Centro de Custo</th>
+                <th>Editar</th>
+              </tr>
+            </thead>
+            <tbody id="userTableBody">
+              <!-- Users will be added here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Editar Usuário</h2>
+        <form id="editUserForm">
+          <input type="hidden" id="editUserId" />
+          <div>
+            <label for="editNomeUser">Nome User</label>
+            <input type="text" id="editNomeUser" required />
+          </div>
+          <div>
+            <label for="editDepartamento">Departamento</label>
+            <input type="text" id="editDepartamento" required />
+          </div>
+          <div>
+            <label for="editLicenca">Licença</label>
+            <select id="editLicenca" required>
+              <!-- Mesmas opções do campo 'licenca' no formulário de adicionar usuário -->
+              <option value="Microsoft 365 Business Basic">
+                Microsoft 365 Business Basic
+              </option>
+              <option value="Power BI Pro">Power BI Pro</option>
+              <option value="Microsoft Fabric (Free)">
+                Microsoft Fabric (Free)
+              </option>
+              <option value="Microsoft 365 Apps for business">
+                Microsoft 365 Apps for business
+              </option>
+              <option value="Office 365 E3">Office 365 E3</option>
+              <option value="Microsoft Power Automate Free">
+                Microsoft Power Automate Free
+              </option>
+              <option value="Project Plan 3">Project Plan 3</option>
+              <option value="Office 365 F3">Office 365 F3</option>
+              <option value="Microsoft 365 Business Standard">
+                Microsoft 365 Business Standard
+              </option>
+              <option value="Dynamics 365 Sales Professional">
+                Dynamics 365 Sales Professional
+              </option>
+              <option value="Microsoft 365 E3">Microsoft 365 E3</option>
+              <option value="Power BI Premium Per User">
+                Power BI Premium Per User
+              </option>
+              <option value="Microsoft Power Apps for Developer">
+                Microsoft Power Apps for Developer
+              </option>
+              <option value="Microsoft 365 F3">Microsoft 365 F3</option>
+              <option value="Power Automate Premium">
+                Power Automate Premium
+              </option>
+              <option value="Planner Plan 1">Planner Plan 1</option>
+              <option value="OneDrive for business (Plan 2)">
+                OneDrive for business (Plan 2)
+              </option>
+              <option value="Microsoft Power Apps Plan 2 Trial">
+                Microsoft Power Apps Plan 2 Trial
+              </option>
+              <option value="Windows 10/11 Enterprise E3 VDA">
+                Windows 10/11 Enterprise E3 VDA
+              </option>
+              <option value="Copilot for Microsoft 365">
+                Copilot for Microsoft 365
+              </option>
+              <option value="Dynamics 365 Customer Voice Trial">
+                Dynamics 365 Customer Voice Trial
+              </option>
+              <option value="Microsoft Entra ID P2">
+                Microsoft Entra ID P2
+              </option>
+              <option value="Microsoft Business Center">
+                Microsoft Business Center
+              </option>
+              <option value="Visio Plan 2">Visio Plan 2</option>
+              <option value="Microsoft Stream Trial">
+                Microsoft Stream Trial
+              </option>
+            </select>
+          </div>
+          <div>
+            <label for="editDataCriacao">Data de criação</label>
+            <input type="date" id="editDataCriacao" />
+          </div>
+          <div>
+            <label for="editFornecedor">Fornecedor</label>
+            <input type="text" id="editFornecedor" required />
+          </div>
+          <div>
+            <label for="editValor">Valor</label>
+            <input type="number" id="editValor" step="0.01" required />
+          </div>
+          <div>
+            <label for="editCC">Centro de Custo</label>
+            <input type="text" id="editCC" />
+          </div>
+          <input type="submit" value="Salvar Alterações" />
+          <button type="button" id="deleteUserButton">Deletar Usuário</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="licencas.js"></script>
+  </body>
+</html>
